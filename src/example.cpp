@@ -5,6 +5,6 @@ using namespace std;
 
 int main()
 {
-  std::stdout << "Hello world!" << std::endl;
-  return 0
+  std::cout << "Hello world!" << std::endl;
+  return 0;
 }
