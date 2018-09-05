@@ -20,3 +20,8 @@ cmake ..
 make -j 4
 
 ```
+
+## Reference
+
+* <http://on-demand.gputechconf.com/gtc/2017/presentation/S7438-robert-maynard-build-systems-combining-cuda-and-machine-learning.pdf>
+* <https://cliutils.gitlab.io/modern-cmake/chapters/packages/CUDA.html>

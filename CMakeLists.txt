@@ -18,19 +18,24 @@ set (PROJECT_NAME example)
 project(${PROJECT_NAME} CUDA CXX)
 set (${PROJECT_NAME}_VERSION 0.1.0)
 
+if(NOT DEFINED CMAKE_CXX_STANDARD)
+    set(CMAKE_CXX_STANDARD 11)
+    set(CMAKE_CXX_STANDARD_REQUIRED True)
+endif()
+
 if(NOT DEFINED CMAKE_CUDA_STANDARD)
     set(CMAKE_CUDA_STANDARD 11)
-    set(CMAKE_CUDA_STANDARD_REQUIRED ON)
+    set(CMAKE_CUDA_STANDARD_REQUIRED True)
 endif()
 
 # CUDA architecture options, choose what you want
-set(GENCODE_SM60 "-gencode=arch=compute_60,code=sm_60")
+set(GENCODE_SM60 "-gencode=arch=compute_60,code=sm_60 ")
 set(GENCODE_SM62 "-gencode=arch=compute_62,code=sm_62")
 
 #CUDA_SELECT_NVCC_ARCH_FLAGS(ARCH_FLAGS 3.0 3.5+PTX 5.2(5.0) Maxwell)
-LIST(APPEND CUDA_NVCC_FLAGS ${GENCODE_SM60}, ${GENCODE_SM62})
+string(APPEND CMAKE_CUDA_FLAGS ${GENCODE_SM60} ${GENCODE_SM62})
 
-message(${CUDA_NVCC_FLAGS})
+# message(${CMAKE_CUDA_FLAGS}) # for debugging
 # Add the base directory to your include file search path
 include_directories(${CMAKE_SRC_DIR})
 
