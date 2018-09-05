@@ -24,12 +24,11 @@ if(NOT DEFINED CMAKE_CUDA_STANDARD)
 endif()
 
 # CUDA architecture options, choose what you want
-set(GENCODE_SM60 "-gencode=arch=compute_60,code=sm_60,")
-set(GENCODE_SM62 "-gencode=arch=compute_62,code=sm_62,")
+set(GENCODE_SM60 "-gencode=arch=compute_60,code=sm_60")
+set(GENCODE_SM62 "-gencode=arch=compute_62,code=sm_62")
 
-set(ARCH_FLAGS ${GENCODE_SM60} ${GENCODE_SM62})
 #CUDA_SELECT_NVCC_ARCH_FLAGS(ARCH_FLAGS 3.0 3.5+PTX 5.2(5.0) Maxwell)
-LIST(APPEND CUDA_NVCC_FLAGS ${ARCH_FLAGS})
+LIST(APPEND CUDA_NVCC_FLAGS ${GENCODE_SM60}, ${GENCODE_SM62})
 
 message(${CUDA_NVCC_FLAGS})
 # Add the base directory to your include file search path
