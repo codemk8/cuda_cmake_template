@@ -14,9 +14,9 @@ mkdir build
 
 cd build
 
-# add other cmake options for release/debug etc.
 cmake ..
+# or cmake .. -DCMAKE_BUILD_TYPE=Release/Debug for debug/release build
 
-make
+make -j 4
 
 ```
