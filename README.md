@@ -21,6 +21,13 @@ make -j 4
 
 ```
 
+Build with clang and Ninja:
+```
+cmake .. -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_CUDA_COMPILER=clang++ -GNinja
+ninja
+```
+
+
 ## Reference
 
 * <http://on-demand.gputechconf.com/gtc/2017/presentation/S7438-robert-maynard-build-systems-combining-cuda-and-machine-learning.pdf>
